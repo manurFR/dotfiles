@@ -1,4 +1,4 @@
-### Emmanuel Bizieau 24/10/2019 ###
+### Emmanuel Bizieau 08/01/2020 ###
 
 echo "[EB] sourcing .bash_aliases"
 
@@ -211,4 +211,20 @@ function ii()   # Get current host related info.
     echo -e "\n${BRed}Local IP Address :$NC" ; my_ip
     echo -e "\n${BRed}Open connections :$NC "; netstat -pan --inet;
     echo
+}
+
+
+function bytesToHuman() { # convert 2048 to "2.00 K" etc.
+    if (( ${#} == 0 )); then # piped input
+        read b
+    else
+        b=$1
+    fi
+    b=${b:-0}; d=''; s=0; S=(Bytes {K,M,G,T,P,E,Z,Y})
+    while ((b > 1024)); do
+        d="$(printf ".%02d" $((b % 1024 * 100 / 1024)))"
+        b=$((b / 1024))
+        let s++
+    done
+    echo "$b$d ${S[$s]}"
 }
