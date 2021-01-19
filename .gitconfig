@@ -20,6 +20,7 @@
   logbranch = log --oneline --graph --decorate
   files = show --name-status
   follow = log --graph --decorate --pretty=format:'%C(blue)[%ad %an] %C(yellow)%h%d%Creset %s' --date=short --all --follow
+  tags = log --oneline --decorate --tags --no-walk
   spull = !git-svn fetch && git-svn rebase
   spush = !git-svn dcommit 
   diff = diff -p --stat
