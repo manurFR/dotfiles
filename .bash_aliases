@@ -1,13 +1,18 @@
-### Emmanuel Bizieau 08/01/2020 ###
+### Emmanuel Bizieau 19/02/2021 ###
 
 echo "[EB] sourcing .bash_aliases"
 
-alias c="cd /c"
+alias ba="vim ~/.bash_aliases && source ~/.bash_aliases"
+
+# pour Windows Terminal
+alias c="cd /mnt/c"
+alias d="cd /mnt/d"
+alias explorer="explorer.exe ." # ouvrir un explorer directement dans le HOME Ubuntu
 
 # cd, ls, find, grep
-alias l="ls -lhFG --color"
+alias l="ls -lhFGh --color"
 alias ls="ls -FG --color"
-alias ll="ls -laFGv --color --group-directories-first"
+alias ll="ls -laFGvh --color --group-directories-first"
 alias f="find . -iname"
 alias pgrep="ps aux | grep"
 alias ..="cd .."
@@ -69,7 +74,7 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_DESCRIBE_STYLE="branch"
 #export GIT_PS1_SHOWCOLORHINTS=1
 
-GIT_PROMPT=`locate -l1 /etc/profile.d/git-prompt.sh || find /etc/profile.d/ -maxdepth 2 -iname git-prompt.sh`
+GIT_PROMPT=`locate -l1 dotfiles/git-prompt.sh 2>/dev/null 2>/dev/null || find ~ -maxdepth 2 -iname git-prompt.sh`
 source ${GIT_PROMPT}
 
 function prompt {
