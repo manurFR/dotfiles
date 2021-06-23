@@ -233,3 +233,15 @@ function bytesToHuman() { # convert 2048 to "2.00 K" etc.
     done
     echo "$b$d ${S[$s]}"
 }
+
+ts2date() {
+    ts=$1
+    millis=""
+    if [ ${#ts} -gt 10 ]; then  # timestamp avec millisecondes, que l'on retire
+        length=${#ts}
+        newlength=$(expr ${length} - 3)
+        millis=".${ts:$newlength:$length}"
+        ts=${ts:0:$newlength}
+    fi
+    date +"%Y-%m-%d %H:%M:%S${millis}" -d@${ts}
+}
