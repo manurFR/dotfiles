@@ -18,6 +18,8 @@ alias pgrep="ps aux | grep"
 alias ..="cd .."
 alias ...="cd .. ; cd .."
 alias path='echo -e ${PATH//:/\\n}'
+alias aliasg='alias | grep'
+alias detect_crlf='find . -not -type d -exec file "{}" ";" | grep CRLF'
 
 # taille des fichiers
 alias size="du -hs * | sort -hr; printf '%0.s-' {1..35}; echo; du -hs | sed 's/\./[Total]/'"
@@ -38,6 +40,10 @@ alias gcm="git commit -m"
 # maven
 alias mci='mvn clean install'
 alias mcid='mvn clean install -DskipTests'
+
+# python
+alias pip="python -m pip"
+source ~/.venvwrapper
 
 # rainbow !!!!!!
 alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done'
