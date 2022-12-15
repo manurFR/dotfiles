@@ -40,15 +40,15 @@ mkvenv() {
   elif [ $# -eq 1 ]
     then
       python3 -m venv $VENV_HOME/$1
-	  python -V
 	  echo "Activating venv #$1"
 	  workon $1
+	  python -V
   elif [ $# -eq 2 ]
     then
       $2 -m venv $VENV_HOME/$1
-	  python -V
 	  echo "Activating venv #$1"
 	  workon $1
+	  python -V
   fi      
 }
 
