@@ -13,7 +13,9 @@
   rb = rebase
   rbi = rebase -i
   log-stats = log --stat
+  pretty-log = log --oneline --date-order --graph --all --decorate
   topo-log = log --oneline --graph --all
+  limit-log = log --oneline --graph --decorate
   resume = log --oneline --graph --all -15
   logrep = "!logrep() { git log --oneline --grep=$1; }; logrep"
   logrepshow = "!logrepshow() { git log --oneline --grep=$1 | cut -d ' ' -f 1 | xargs git show --name-only; }; logrepshow"
