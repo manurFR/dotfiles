@@ -42,7 +42,8 @@ alias mcid='mvn clean install -DskipTests'
 
 # python
 alias pip="python -m pip"
-source ~/.venvwrapper
+[[ -f ~/.startup.py ]] && export PYTHONSTARTUP=~/.startup.py
+[[ -f ~/.venvwrapper ]] && source ~/.venvwrapper
 
 # rainbow !!!!!!
 alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done'
