@@ -30,3 +30,10 @@
   alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 [core]
   editor = vim
+  autocrlf = input
+[pull]
+  rebase = true
+[rebase]
+  autoStash = true
+[init]
+  defaultBranch = main
