@@ -28,7 +28,7 @@ alias st='git st'
 alias t='svn info &> /dev/null ; if [ $? -eq 0 ]; then svn log -l 8 ; else git --no-pager topo-log -12 ; fi'
 alias topo='git topo-log'
 alias gll='git limit-log'
-alias gpr='git pull --rebase'
+alias gpr='git pull --rebase --autostash'
 alias stash='git stash save'
 alias pop='git stash pop'
 
