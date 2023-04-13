@@ -51,8 +51,11 @@ alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m
 # find then open in vim
 fvi () { vim $(find . -iname "$1") ; }
 
-# grep in word files (.doc uniquement et nécessite catdoc) - usage: docgrep <pattern> ["grep-options"]
-docgrep() { find . -name "*.doc" | while read i; do catdoc "$i" | grep --label="$i" -H $2 "$1"; done }
+# grep in word files (.doc & .docx) - usage: docgrep <pattern> ["grep-options"]
+docgrep() {
+        find . -name "*.doc" | while read i; do antiword "$i" | grep --label="$i" -H $2 "$1"; done
+        find . -name "*.docx" | while read i; do unzip -p "$i" word/document.xml | sed -e 's/<\/w:p>/\n/g; s/<[^>]\{1,\}>//g; s/[^[:print:]\n]\{1,\}//g' | grep --label="$i" -H $2 "$1"; done
+}
 
 # usage: $ sudobg <command to run in background>
 sudobg() {
