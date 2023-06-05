@@ -2,6 +2,11 @@
   branch = auto
   diff = auto
   status = auto
+[color "diff"]
+  new = bold italic 154
+  old = italic brightred
+[color "status"]
+  changed = brightred  
 [alias]
   last = cat-file commit HEAD
   format = commit -a -m\"[refactor] format\"
